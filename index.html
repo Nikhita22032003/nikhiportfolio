@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      height: auto;
+      background: #11111100;
+      
+      justify-content: center;
+      align-items: center; 
+      font-family: Arial, sans-serif;
+      background-color: #0f060600;
+    }
+    /* Navigation */
+header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6ff3;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+  background-color: rgb(47, 8, 63);
+
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  font-weight: 10000;
+}
+
+.hero-content h1 span {
+  color: white;
+  margin-left: 100px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  margin-left: 100px;
+  color: #ccc;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(90deg, #ff007c, #ff8a00);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(255,0,124,0.6);
+}
+
+.hero-image {
+  margin-top: 10px;
+  
+}
+
+.hero-image img {
+  width: 800px;
+  height: auto;
+  
+}
+    #bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+   .parallax-container {
+  width: 100%;
+  height: 180vh;
+  position: relative;
+  overflow: hidden;
+  perspective: 5px;
+  background-color: rgba(42, 12, 70, 0.056);
+}
+
+.parallax-bg {
+  background-image: url('images/cre1.png'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+   position: absolute;
+  width: 100%;
+  height: 100%;
+ 
+   transform: translateZ(-1px) scale(2); /* Creates parallax depth */
+  transition: transform 0.2s ease-out;
+}
+.parallax-container:hover .parallax-bg {
+  transform: translateZ(-1px) scale(2) translate(var(--x, 0), var(--y, 0));
+}
+
+.content123 {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 10%;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: rgb(255, 255, 255);
+  text-shadow: white;
+}
+
+
+@keyframes rotate {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+.scene {
+ 
+  position: relative;
+  width: 0px;
+  height: 0px;
+  transform-style: preserve-3d;
+  margin : 5%;
+  margin-left: 30%;
+  left :1px
+}
+
+.center-image {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  
+}
+
+.center-image img {
+  width: 100px;
+  border-radius: 20%;
+  box-shadow: 0 0 15px #00f5ff;
+  
+}
+
+.ring {
+  position: absolute;
+  size: 100%;
+  top: 30%;
+  left: 30%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  text-decoration-thickness: 2px;
+  
+  transform: translate(-50%, -50%) rotateY(10deg);
+}
+
+.orbit-image {
+  position: absolute;
+  size: 50px;
+  width: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.854);
+  border: #111 solid 2px;
+}
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 0;
+}
+
+/* Glowing vertical line */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background: linear-gradient(180deg, #ff4c29, #ff0099, #00f5ff);
+  background-size: 300% 300%;
+  animation: gradientMove 4s infinite;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container for each entry */
+.container {
+  padding: 15px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.container.left { left: 0; }
+.container.right { left: 50%; }
+
+/* Card style */
+.content {
+  background: rgba(9, 1, 9, 0.81);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  position: relative;
+  opacity: 0;
+  height: 300px;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s ease, box-shadow 0.3s;
+}
+
+.content:hover {
+  box-shadow: 0 0 55px rgba(87, 9, 91, 0.896);
+}
+
+/* Date styling */
+.date {
+  font-weight: bold;
+  font-size: 14px;
+  color: #ff4c29;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+/* Title */
+h3 {
+  margin-top: 0;
+  color: #00f5ff;
+}
+
+/* Circle marker */
+.container::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff4c29;
+  border: 3px solid #fff;
+  top: 20px;
+  right: -10px;
+  z-index: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 76, 41, 0.7);
+}
+
+.container.right::before {
+  left: -10px;
+}
+
+/* Show animation */
+.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    left: 0;
+    padding-left: 80px;
+    padding-right: 25px;
+  }
+  .container::before {
+    left: 40px;
+  }
+  .container.right {
+    left: 0;
+  }
+}
+.timeline1 {
+      position: relative;
+      width: 100%;
+      margin-bottom: 10px;;
+    }
+
+    .card {
+      position: sticky;
+      top: 0;
+      height: 150vh;
+      width: 80vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(270deg, #5c395ca1, #302b63, #3d243e);
+      border: rgb(182, 175, 175) 5px solid;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      margin-bottom: 50px;
+      transform-origin: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      margin-left: 80px;
+
+    }
+
+    .card-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .client {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .card img {
+      width: 80%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      
+    }
+
+    .live-btn {
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.515);
+      border: 2px solid #fff;
+      border-radius: 50px;
+      color: #fff;
+      position:absolute;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .live-btn:hover {
+      background: #fff;
+      color: black;
+    }
+.container12 {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    perspective: 1500px;
+    margin-top:20% ;
+    margin-left: 200px;
+    margin-right: 200px;
+    
+  }
+
+  .skills-text12 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .orbit12 {
+    margin-left: 200px;;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: spin 20s linear infinite;
+  }
+
+  .orbit12 img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2), 0 0 30px rgba(0,255,255,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .orbit12 img:hover {
+    transform: scale(1.2) translateZ(40px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.7), 0 0 35px rgba(0,255,255,0.8);
+  }
+
+  @keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      width: 350px;
+      height: 350px;
+    }
+    .skills-text {
+      font-size: 2.5rem;
+    }
+    .orbit img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+.div1{
+  display: flex;;
+}
+.space-bg {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: black url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: moveSpace 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveSpace {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* Centered Container */
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Full-Screen Collaboration Section */
+.collab-showcase {
+  min-height: 100vh;
+  /* background: linear-gradient(135deg, #1e1e2f, #3a0ca3, #f72585); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  text-align: center;
+  color: white;
+  animation: bgGradient 8s infinite alternate ease-in-out;
+}
+
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.collab-title {
+  font-size: 3rem;
+  font-weight: bold;
+  animation: fadeInDown 1.2s ease-out forwards;
+}
+
+.collab-subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 1.4s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.flashcard {
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flashcard-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard-front {
+  background: white;
+  transition: transform 0.6s ease;
+}
+
+.flashcard-front img {
+  width: 60%;
+}
+
+.flashcard-back {
+  background: #222;
+  transform: rotateY(180deg);
+  transition: transform 0.6s ease;
+}
+
+.flashcard-back a {
+  color: #ffeb3b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.flashcard:hover .flashcard-front {
+  transform: rotateY(180deg);
+}
+
+.flashcard:hover .flashcard-back {
+  transform: rotateY(0deg);
+}
+
+/* Download Button */
+.download-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #1010101f;
+  color: #fbf9f9;
+  border: white 2px solid;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: scale(1.1);
+  background: #f4f4f299;
+  border: white 2px solid;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,235,59, 0.7); }
+  50% { box-shadow: 0 0 20px 20px rgba(255,235,59, 0); }
+}
+
+/* Footer */
+.site-footer {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.traits-section {
+  background: rgba(0, 0, 0, 0);
+  padding: 50px 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.traits-row {
+  display: flex;
+  white-space: nowrap;
+  margin: 25px 0;
+}
+
+.traits-track {
+  display: flex;
+  animation: scrollLeft 5s linear infinite;
+}
+
+.traits-row.reverse .traits-track {
+  animation: scrollRight 5s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.trait-card {
+  flex: 0 0 auto;
+  width: 450px;
+  height: 200px;
+  margin: 0 15px;
+  border-radius: 15px;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(270deg, #9e629e, #302b63, #3d243e);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  transition: transform 0.3s ease;
+}
+
+.trait-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.trait-card p {
+  font-size: 1.2rem;
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.trait-card:hover {
+  transform: scale(1.1);
+}
+
+.trait-card:hover p {
+  opacity: 1;
+  max-height: 200px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#typing-text {
+  white-space: pre-wrap;
+  margin-left: 280px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-top: 50px;;
+  overflow: hidden;
+  width: 500px;
+}
+.hero11 {
+        position: relative;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        background-color: #11111100;
+    }
+
+    .hero11-text-behind {
+        position: absolute;
+        top: 80px;
+        font-size: 80px;
+        font-style: italic;
+        font-family: serif;
+        color: rgba(255, 255, 255, 0.881);
+        z-index: 0;
+        transform: translateZ(-50px) scale(1.5);
+        transition: transform 0.5s ease-out;
+        pointer-events: none;
+    }
+
+    .hero11-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        z-index: 1;
+        height: 400px;
+        background-color: #302b63;
+        width: 900px;
+    }
+
+    .image11-container {
+        position: relative;
+        z-index: 2;
+        transition: transform 0.5s ease;
+        width: 300px;
+        
+    }
+
+    .image11-container img {
+        width: 300px;
+        border-radius: 10px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 20px 40px rgba(255, 255, 255, 0);
+    }
+
+    .hero11-text {
+        max-width: 400px;
+        animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+        0% { transform: translateY(50px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .badge11 {
+        display: inline-block;
+        background: orange;
+        color: black;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 14px;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .highlight11 {
+        font-size: 48px;
+        font-weight: bold;
+        display: inline-block;
+        transition: color 0.5s ease;
+        color: #f8f6f6;
+    }
+    .highlight11:hover {
+        color: orange;
+    }
+
+    .subtitle11 {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .description11 {
+        margin-top: 10px;
+        font-size: 14px;
+        opacity: 0.8;
+    }
+/* Base styling */
+.hero111 {
+    position: relative;
+    text-align: center;
+    padding: 60px 20px;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #8e2de2, #4a00e0);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero111-text-behind {
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.1;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.5s;
+}
+
+.slide-up {
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUp 1.5s ease forwards;
+}
+
+.zoom-in img {
+    transform: scale(0.9);
+    opacity: 0;
+    animation: zoomIn 1.5s ease forwards;
+}
+
+.pop-in {
+    transform: scale(0.8);
+    opacity: 0;
+    animation: popIn 1s ease forwards;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Content styling */
+.image111-container img {
+    max-width: 220px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
+
+.image111-container img:hover {
+    transform: scale(1.05);
+}
+
+.highlight111 {
+    color: #FFD700;
+}
+
+.badge111 {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    
+}
+
+.subtitle111 {
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.description111 {
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: auto;
+}
+/* Background animation */
+.nikhita-bg {
+  animation: nikhitaGradientMove 8s ease infinite alternate;
+  ;
+}
+
+/* Title animation */
+.nikhita-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: nikhitaFadeSlide 1.5s ease forwards;
+}
+
+.nikhita-title span {
+  color: #FFD700;
+  animation: nikhitaColorPulse 2s ease-in-out infinite alternate;
+}
+
+/* Subtitle animation */
+.nikhita-subtitle {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: nikhitaFadeSlide 1.5s ease forwards 0.5s;
+}
+
+/* Image animation */
+.nikhita-img {
+  opacity: 0;
+  transform: scale(0.9) rotate(3deg);
+  animation: nikhitaZoomIn 1.5s ease forwards 1s;
+  transition: transform 0.4s ease;
+  box-shadow: #b52f2f solid 2px;
+}
+
+.nikhita-img:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+/* Keyframes */
+@keyframes nikhitaFadeSlide {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nikhitaZoomIn {
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes nikhitaGradientMove {
+  0% { background: linear-gradient(45deg, #7b2ff7, #f107a3); }
+  100% { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+}
+
+@keyframes nikhitaColorPulse {
+  0% { color: #FFD700; }
+  100% { color: #ff4f81; }
+}
+  </style>
+</head>
+<body>
+  <!-- <section class="hero111">
+    <div class="hero111-text-behind fade-in" id="bgText">Hi! Welcome</div>
+    
+    <div class="hero111-content slide-up">
+        <div class="image111-container zoom-in" id="profileImg">
+            <img src="images/me.png" alt="Nikhita's Photo">
+        </div>
+        <div class="hero111-text">
+            <span class="badge111 pop-in">Open to new opportunities</span>
+            <h1 class="fade-in-delay">I AM <span class="highlight111">NIKHITA</span></h1>
+            <p class="subtitle111 fade-in-delay">COMPUTER SCIENCE UNDERGRADUATE</p>
+            <p class="description111 fade-in-delay">Full-Stack Developer & Software Developer and more.</p>
+        </div>
+    </div>
+</section> -->
+<video autoplay muted loop id="bgVideo">
+    <source src="images/vedio1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <!-- Hero Section -->
+   
+<section class="hero nikhita-hero" style="background: linear-gradient(to top , #bfa7d500, #250368);">
+  <div class="div1 nikhita-bg"></div>
+  
+  <div class="hero-content nikhita-content">
+    <h1 class="nikhita-title">HI, I'M <span>NIKHITA</span></h1>
+    <p class="nikhita-subtitle">Welcome to my portfolio<span></span></p>
+    <!-- <a href="#contact" class="contact-btn">Contact Me</a> -->
+  </div>
+  
+  <div class="hero-image nikhita-image">
+    <img src="images/me.png" alt="3D Character" class="nikhita-img">
+  </div>
+</section>
+  <div >
+  <div class="parallax-container">
+  <div class="parallax-bg">
+  <div class="content123">
+    <h1>About Me</h1>
+     <p id="typing-text"></p>
+  </div>
+</div></div>  
+
+
+<section class="traits-section">
+  <!-- Row 1 -->
+  <div class="traits-row">
+    <div class="traits-track">
+      <div class="trait-card">
+        <h3>Problem Solver</h3>
+        <p>Able to break down complex problems into clear, manageable solutions.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Detail-Oriented</h3>
+        <p>Never misses the small things that make code reliable and maintainable.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Innovator</h3>
+        <p>Always thinking of new ways to improve efficiency and performance.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Fast Learner</h3>
+        <p>Quickly adapts to new languages, frameworks, and tools.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="traits-row reverse">
+    <div class="traits-track">
+      <div class="trait-card">
+        <h3>Collaborator</h3>
+        <p>Collaborates seamlessly to achieve shared goals.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Adaptable</h3>
+        <p>Thrives in changing environments and shifting priorities.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Creative Thinker</h3>
+        <p>Brings fresh ideas to solve unconventional problems.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Reliable</h3>
+        <p>Delivers consistent results and meets deadlines.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="traits-row">
+    <div class="traits-track">
+      <div class="trait-card">
+        <h3>Clean Coder</h3>
+        <p>Writes maintainable, scalable, and well-documented code.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Tech Enthusiast</h3>
+        <p>Keeps up with the latest trends and technologies.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Debugger</h3>
+        <p>Finds and fixes issues with precision and patience.</p>
+      </div>
+      <div class="trait-card">
+        <h3>Performance Optimizer</h3>
+        <p>Improves speed and efficiency across systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<div>
+  <div class="container12">
+  <div class="skills-text12">SKILLS</div>
+  <div class="orbit12">
+    <img src="images/skill1.png" style="transform: rotateY(0deg) translateZ(220px); " alt="HTML5 logo"/>
+    <img src="images/skill2.png" style="transform: rotateY(36deg) translateZ(220px);" alt="CSS3 logo"/>
+    <img src="images/skill3.png" style="transform: rotateY(72deg) translateZ(220px);"alt="JavaScript logo"/>
+    <img src="images/skill4.png" style="transform: rotateY(108deg) translateZ(220px);"alt="React logo"/>
+    <img src="images/skill5.png" style="transform: rotateY(144deg) translateZ(220px);"alt="Node.js logo" />
+    <img src="images/skill6.png" style="transform: rotateY(180deg) translateZ(220px);"alt="Python logo" />
+    <img src="images/skill7.png" style="transform: rotateY(216deg) translateZ(220px);"alt="Java logo" />
+    <img src="images/skill8.png" style="transform: rotateY(252deg) translateZ(220px);"alt="C++ logo" />
+    <img src="images/skill9.png" style="transform: rotateY(288deg) translateZ(220px);"alt="Database icon" />
+    <img src="images/skill10.png" style="transform: rotateY(324deg) translateZ(220px);" alt="Git logo" />
+  </div>
+</div>
+
+<div class="scene">
+  <!-- <div class="center-image">
+    <img src="images/center.png" alt="Center" />
+  </div> -->
+  
+  <div class="ring" id="ring">
+    <!-- <img src="images/skill1.png" class="orbit-image" alt="HTML5 logo" />
+<img src="images/skill2.png" class="orbit-image" alt="CSS3 logo" />
+<img src="images/skill3.png" class="orbit-image" alt="JavaScript logo" />
+<img src="images/skill4.png" class="orbit-image" alt="React logo" />
+<img src="images/skill5.png" class="orbit-image" alt="Node.js logo" />
+<img src="images/skill6.png" class="orbit-image" alt="Python logo" />
+<img src="images/skill7.png" class="orbit-image" alt="Java logo" />
+<img src="images/skill8.png" class="orbit-image" alt="C++ logo" />
+<img src="images/skill9.png" class="orbit-image" alt="Database icon" />
+<img src="images/skill10.png" class="orbit-image" alt="Git logo" /> -->
+   
+    <!-- Add more images as needed -->
+  </div>
+  </div></div>
+
+<div class="timeline1">
+  <!-- Internship Card -->
+ 
+
+  <!-- Projects -->
+  <!-- AI Internship Card -->
+<section class="card">
+  <div class="card-number">AI Internship</div>
+  <div class="client">AI/ML Internship – placemantra</div>
+  <img src="images/ai.png" alt="AI ML Internship">
+  <p style="padding:10px; color:white;"></p>
+    <!-- Completed a 4-week internship focused on Artificial Intelligence and Machine Learning.  
+    Worked on projects involving K-Means Clustering and Spam News Detection,  
+    gaining hands-on experience in data preprocessing, model building, and evaluation.
+  </p> -->
+  <a href="placemantra.pdf" target="_blank" class="live-btn">VIEW DETAILS</a>
+</section>
+
+<!-- Full Stack Development Internship Card -->
+<section class="card">
+  <div class="card-number">Full Stack Development Internship</div>
+  <div class="client">Full Stack Development Internship – NativeSoft</div>
+  <img src="images/fullstack.png" alt="Full Stack Development Internship">
+  <p style="padding:10px; color:white;" >
+    <!-- Completed a 1-month internship in Full Stack Web Development.  
+    Developed responsive web applications using React.js, Node.js, Express.js, and MongoDB.  
+    Focused on authentication, CRUD operations, and API integration. -->
+  </p>
+  <a href="Nativesoft.pdf" target="_blank" class="live-btn">VIEW DETAILS</a>
+</section>
+<section class="card">
+  <div class="card-number">HDIMS App</div>
+  <div class="client">HDIMS – Health Data Information & Management System</div>
+  <img src="images/hdimsimg.png" alt="HDIMS Kotlin Firebase App">
+  <p style="padding:10px; color:white;">
+    <!-- Major project built using Kotlin and Firebase for Android.  
+    Features include user registration with health details, secure authentication,  
+    dashboard with medical records, appointments, allergies, and emergency contact info. -->
+  </p>
+  <a href="https://github.com/Nikhita22032003/nikhiHDIMS.git" target="_blank" class="live-btn" rel="noopener noreferrer">VIEW PROJECT</a>
+</section>
+
+  
+</div>
+
+<h2 style="text-align:center; padding-top:10px; font-size: 80px; color: white; text-shadow: 0 0 20px rgba(255,255,255,0.5);">My Project Timeline</h2>
+<div class="timeline">
+
+  <div class="container left">
+    <div class="content">
+      <div class="date">Jan 2025</div>
+      <h3>SplitEase – Smart Bill Splitter</h3>
+      <p>Developed a web app to split expenses among groups, built with React.js, Node.js, Express.js, MongoDB, and JWT for secure authentication.</p>
+      <a href="https://github.com/Nikhita22032003/nikhibillsplitter.git" target="_blank" class="live-btn" rel="noopener noreferrer">VIEW PROJECT</a>
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <div class="date">Feb 2025</div>
+      <h3>Music Genre Classification</h3>
+      <p>Created a Python-based ML model to classify songs by genre using extracted audio features. Integrated with HTML for a simple web UI.</p>
+      <a href="https://github.com/Nikhita22032003/nikhimusicgeneric.git" target="_blank" class="live-btn" rel="noopener noreferrer">VIEW PROJECT</a>
+    </div>
+  </div>
+
+  <div class="container left">
+  <div class="content">
+    <div class="date">Jun 2025</div>
+    <h3>Pizza Ordering App</h3>
+    <p>
+      Developed a responsive web-based pizza ordering application .  
+      Integrated Razorpay payment gateway for secure online transactions,  
+      with features like add-to-cart, order tracking, and customizable pizza options.
+    </p>
+    <a href="https://github.com/Nikhita22032003/nikhipizzawebsite.git" target="_blank" class="live-btn" rel="noopener noreferrer">VIEW PROJECT</a>
+  </div>
+</div>
+
+
+  <div class="container right">
+    <div class="content">
+      <div class="date">Aug 2025</div>
+      <h3>Portfolio Website</h3>
+      <p>Designed and developed a personal portfolio website to showcase skills, projects, and achievements using HTML, CSS, and JavaScript.</p>
+      <a href="https://github.com/Nikhita22032003/nikhiportfolio.git" target="_blank" class="live-btn" rel="noopener noreferrer">VIEW PROJECT</a>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- Collaboration Invitation Section -->
+<section class="collab-showcase">
+  <div class="collab-content">
+    <h1 class="collab-title">💡 Let's Build Something Amazing Together</h1>
+    <p class="collab-subtitle">I’m always open to collaborating on bold, creative, and groundbreaking ideas that make an impact.</p>
+
+    <div class="flashcard-container">
+      <!-- GitHub Card -->
+      <div class="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <img src="images/skill3.png" alt="GitHub Logo">
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <a href="https://github.com/Nikhita22032003" target="_blank" rel="noopener noreferrer">Visit My GitHub</a>
+        </div>
+      </div>
+
+      <!-- LinkedIn Card -->
+      <div class="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <img  src="images/linkdin.png" alt="LinkedIn Logo">
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <a href="https://www.linkedin.com/in/nikhita-g-negalur-50ab882a8" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="trialfinalresume.pdf" download class="download-btn">📄 Download My Resume</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" style="background-color: #1111119e;">
+  <p>© 2025 Nikhita | Designed with ❤️ & Creativity</p>
+</footer>
+
+
+
+
+
+<script>
+  const content = document.querySelector('.content');
+  const layer1 = document.querySelector('.layer.img1');
+  const layer2 = document.querySelector('.layer.img2');
+
+  content.addEventListener('mousemove', (e) => {
+    const { offsetWidth: width, offsetHeight: height } = content;
+    const x = e.offsetX - width / 2;
+    const y = e.offsetY - height / 2;
+
+    layer1.style.transform = `translate(${x * 0.02}px, ${y * 0.02}px)`;
+    layer2.style.transform = `translate(${x * 0.04}px, ${y * 0.04}px)`;
+  });
+  const ring = document.getElementById('ring');
+  const images = ring.querySelectorAll('.orbit-image');
+  const total = images.length;
+  const radius = 150;
+
+  // Position images in a circle
+  images.forEach((img, i) => {
+    const angle = (i / total) * 360;
+    const rad = (angle * Math.PI) / 180;
+    const x = Math.cos(rad) * radius;
+    const z = Math.sin(rad) * radius;
+    img.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+  });
+
+  // Rotate continuously
+  let rotateY = 0;
+  function animate() {
+    rotateY += 0.3;
+    ring.style.transform = `translate(-50%, -50%) rotateY(${rotateY}deg)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+  // Reveal animation on scroll
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.content').forEach(content => {
+    const rect = content.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      content.classList.add('show');
+    }
+  });
+});
+ // Simple scroll scale-down effect
+  const cards = document.querySelectorAll('.card');
+
+  window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const scrollPercent = Math.min(Math.max((window.innerHeight - rect.top) / window.innerHeight, 0), 1);
+      const scale = 1 - scrollPercent * 0.1;
+      const opacity = 1 - scrollPercent * 0.;
+      card.style.transform = `scale(${scale})`;
+      card.style.opacity = opacity;
+    });
+  });
+  const parallaxBg = document.querySelector('.parallax-bg');
+
+document.addEventListener('mousemove', (e) => {
+  let moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+  let moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+  parallaxBg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.1)`;
+});
+const aboutText = `"My social battery dies faster than a phone in a bad signal area — but hand me a coding challenge and a hot cup of chai, and suddenly I’m a renewable energy source. I’m that quiet human in the corner, quietly shipping something cooler than whatever the loud guy’s bragging about. My weekends? Debugging bugs and brewing tea strong enough to crash a small server. Small talk? Nah — I’m in stealth mode, plotting my next big project (and yes, avoiding runtime errors… mostly)."`;
+
+let index = 0;
+const typingSpeed = 0.1; // ms per character
+
+function typeText() {
+  if (index < aboutText.length) {
+    document.getElementById("typing-text").textContent += aboutText.charAt(index);
+    index++;
+    setTimeout(typeText, typingSpeed);
+  } else {
+    document.getElementById("typing-text").style.borderRight = "none"; // remove cursor
+  }
+}
+
+window.onload = typeText;
+
+</script>
+
+</body>
+</html>

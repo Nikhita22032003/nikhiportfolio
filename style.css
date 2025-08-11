@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+   background: url('images/vedio.mp4') repeat-y; 
+  background-size: cover; 
+   animation: scrollBackground 20s linear infinite; 
+}
+
+/* Optional: Comment out if using video only */
+
+@keyframes scrollBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 1000px;
+  }
+}
+
+
+#bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0);
+  font-family: 'Arial', sans-serif;
+  padding: 100px;
+  text-align: center;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+.layer.img1 {
+  background-image: url('img1.png');
+  z-index: -2;
+}
+
+.layer.img2 {
+  background-image: url('img2.png');
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.5em;
+}
